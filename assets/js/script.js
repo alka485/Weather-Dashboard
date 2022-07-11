@@ -6,8 +6,8 @@ function getApi(city){
     var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
     console.log(city);
     console.log(requestUrl);
-    displayCityEl.value=requestUrl.html_main_name;
-    console.log(displayCityEl);
+    //displayCityEl.innerHTML=requestUrl_main;
+    //console.log(displayCityEl);
     fetch(requestUrl)
     .then(function(response){
         return response.json();
