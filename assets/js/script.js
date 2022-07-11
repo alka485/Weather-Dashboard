@@ -1,11 +1,16 @@
-//var APIKey = b9f6c58391da8f005bd41c6735238193;
-var citySearchEl = $('cityBox');
-var searchButtonEl = $ ("search");
 
-searchButtonEl.on('click',function(event){
-    event.preventDefault();
+
+console.log("hello");
+var citySearchEl = document.getElementById("cityBox");
+var searchButtonEl = document.getElementById ("search");
+var cityName = citySearchEl.value;
+console.log(citySearchEl);
+console.log(cityName);
+
+function getApi(){
+    //var requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}'
+}
+
+searchButtonEl.addEventListener("click",function(){
     console.log("search");
-    //var cityName = citySearchEl.val();
-    //console.log(cityName);
-
-});
+})
