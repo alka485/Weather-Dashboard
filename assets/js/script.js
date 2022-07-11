@@ -1,7 +1,11 @@
 //var APIKey = b9f6c58391da8f005bd41c6735238193;
-var citySearchEl = document.getElementById("cityBox");
-var searchButton = document.getElementById("search");
+var citySearchEl = $('cityBox');
+var searchButtonEl = $ ("search");
 
-searchButton.addEventListener('click' , function(){
+searchButtonEl.on('click',function(event){
+    event.preventDefault();
     console.log("search");
-})
+    //var cityName = citySearchEl.val();
+    //console.log(cityName);
+
+});
