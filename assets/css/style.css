@@ -17,3 +17,8 @@ header{
     color: #fff;
     font-size: 20px;
 }
+
+.container{
+    font-family: sans-serif;
+    margin: solid black;
+}
