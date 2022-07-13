@@ -15,10 +15,14 @@ var displayOneDateEl= document.getElementById("dayonedate");
 var displayTwoTempEl = document.getElementById("daytwotemp");
 var displayTwoHumidEl = document.getElementById("daytwohumid");
 var displayTwoDateEl= document.getElementById("daytwodate");
-////Day Three//
+//Day Three//
 var displayThreeTempEl = document.getElementById("daythreetemp");
 var displayThreeHumidEl = document.getElementById("daythreehumid");
 var displayThreeDateEl= document.getElementById("daythreedate");
+//Day Four//
+var displayFourTempEl = document.getElementById("dayfourtemp");
+var displayFourHumidEl = document.getElementById("dayfourhumid");
+var displayFourDateEl= document.getElementById("dayfourdate");
 
 
 function getApi(city){
@@ -72,6 +76,13 @@ searchButtonEl.addEventListener("click",function(){
                 displayThreeDateEl.innerHTML= dayThree;
                 displayThreeTempEl.innerHTML= "Temperature : " + data.list[16].main.temp;
                 displayThreeHumidEl.innerHTML= "Humidity : " + data.list[16].main.humidity;
+
+                //Day Four//
+                var dayFour = moment().add(4, "days").format("M/D/YYYY");
+                displayFourDateEl.innerHTML= dayFour;
+                displayFourTempEl.innerHTML= "Temperature : " + data.list[24].main.temp;
+                displayFourHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity;
+
 
                 
        
