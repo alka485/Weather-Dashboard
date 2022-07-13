@@ -7,12 +7,18 @@ var displayHumidEl = document.getElementById("humidity");
 var displayWindEl = document.getElementById("speed");
 var displayDescEl = document.getElementById("description");
 var displayIconEl = document.getElementById("icon");
+//Day One//
 var displayOneTempEl = document.getElementById("dayonetemp");
 var displayOneHumidEl = document.getElementById("dayonehumid");
 var displayOneDateEl= document.getElementById("dayonedate");
+//Day Two//
 var displayTwoTempEl = document.getElementById("daytwotemp");
 var displayTwoHumidEl = document.getElementById("daytwohumid");
 var displayTwoDateEl= document.getElementById("daytwodate");
+////Day Three//
+var displayThreeTempEl = document.getElementById("daythreetemp");
+var displayThreeHumidEl = document.getElementById("daythreehumid");
+var displayThreeDateEl= document.getElementById("daythreedate");
 
 
 function getApi(city){
@@ -48,6 +54,8 @@ searchButtonEl.addEventListener("click",function(){
             })
             .then(function(data){
                 console.log(data);
+
+                //Day One//
                 var dayOne = moment().add(1, "days").format("M/D/YYYY");
                 displayOneDateEl.innerHTML= dayOne;
                 displayOneTempEl.innerHTML= "Temperature : " + data.list[0].main.temp;
@@ -58,6 +66,13 @@ searchButtonEl.addEventListener("click",function(){
                 displayTwoDateEl.innerHTML= dayTwo;
                 displayTwoTempEl.innerHTML= "Temperature : " + data.list[8].main.temp;
                 displayTwoHumidEl.innerHTML= "Humidity : " + data.list[8].main.humidity;
+
+                //Day Three//
+                var dayThree = moment().add(3, "days").format("M/D/YYYY");
+                displayThreeDateEl.innerHTML= dayThree;
+                displayThreeTempEl.innerHTML= "Temperature : " + data.list[16].main.temp;
+                displayThreeHumidEl.innerHTML= "Humidity : " + data.list[16].main.humidity;
+
                 
        
             })
