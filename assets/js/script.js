@@ -23,8 +23,14 @@ function getApi(city){
 }
 
 searchButtonEl.addEventListener("click",function(){
-    //console.log("search");
-    var cityName = citySearchEl.value;
-    //console.log(cityName);
-    getApi(cityName);
+       var cityName = citySearchEl.value;
+       getApi(cityName);
 })
+
+/* adding variables for moment .js, and api to display each day of 5-day forecast date, icon, temp, and humidity 
+        Day one*/
+        var dayOne = moment().format("MM/DD/YYYY");
+        var dayOneTempEl = data.main.temp;
+        console.log(dayOneTempEl);
+
+
