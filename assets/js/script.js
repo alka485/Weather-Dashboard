@@ -10,6 +10,9 @@ var displayIconEl = document.getElementById("icon");
 var displayOneTempEl = document.getElementById("dayonetemp");
 var displayOneHumidEl = document.getElementById("dayonehumid");
 var displayOneDateEl= document.getElementById("dayonedate");
+var displayTwoTempEl = document.getElementById("daytwotemp");
+var displayTwoHumidEl = document.getElementById("daytwohumid");
+var displayTwoDateEl= document.getElementById("daytwodate");
 
 
 function getApi(city){
@@ -26,10 +29,7 @@ function getApi(city){
     displayWindEl.innerHTML= "Wind_Speed  : " + data.wind.speed;
     })
 
-    // var dayOne = moment().format("MM/DD/YYYY");
-    //     var dayOneTempEl = data.main.temp;
-    //     console.log(dayOneTempEl);
-}
+    }
 
 searchButtonEl.addEventListener("click",function(){
        var cityName = citySearchEl.value;
@@ -48,17 +48,18 @@ searchButtonEl.addEventListener("click",function(){
             })
             .then(function(data){
                 console.log(data);
-                var dayOne = moment().format("MM/DD/YYYY");
+                var dayOne = moment().add(1, "days").format("M/D/YYYY");
                 displayOneDateEl.innerHTML= dayOne;
                 displayOneTempEl.innerHTML= "Temperature : " + data.list[0].main.temp;
                 displayOneHumidEl.innerHTML= "Humidity : " + data.list[0].main.humidity;
-        // console.log(dayOne);
-        // var dayOneTempEl = data.list[0].main.temp;
-        // console.log(dayOneTempEl);
-        // var dayOneHumidEl = data.list[0].main.humidity;
-        // console.log(dayOneHumidEl);
-        
 
+                //Day Two//
+                var dayTwo = moment().add(2, "days").format("M/D/YYYY");
+                displayTwoDateEl.innerHTML= dayTwo;
+                displayTwoTempEl.innerHTML= "Temperature : " + data.list[8].main.temp;
+                displayTwoHumidEl.innerHTML= "Humidity : " + data.list[8].main.humidity;
+                
+       
             })
         }
 
