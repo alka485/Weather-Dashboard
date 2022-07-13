@@ -22,3 +22,8 @@ header{
     font-family: sans-serif;
     margin: solid black;
 }
+.container-fluid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
