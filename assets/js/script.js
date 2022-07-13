@@ -23,7 +23,10 @@ var displayThreeDateEl= document.getElementById("daythreedate");
 var displayFourTempEl = document.getElementById("dayfourtemp");
 var displayFourHumidEl = document.getElementById("dayfourhumid");
 var displayFourDateEl= document.getElementById("dayfourdate");
-
+//Day Five//
+var displayFiveTempEl = document.getElementById("dayfivetemp");
+var displayFiveHumidEl = document.getElementById("dayfivehumid");
+var displayFiveDateEl= document.getElementById("dayfivedate");
 
 function getApi(city){
     var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
@@ -82,6 +85,14 @@ searchButtonEl.addEventListener("click",function(){
                 displayFourDateEl.innerHTML= dayFour;
                 displayFourTempEl.innerHTML= "Temperature : " + data.list[24].main.temp;
                 displayFourHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity;
+
+                //Day Five//
+                var dayFive = moment().add(5, "days").format("M/D/YYYY");
+                displayFiveDateEl.innerHTML= dayFive;
+                displayFiveTempEl.innerHTML= "Temperature : " + data.list[24].main.temp;
+                displayFiveHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity;
+
+
 
 
                 
