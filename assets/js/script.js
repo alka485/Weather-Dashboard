@@ -37,9 +37,9 @@ function getApi(city){
     .then(function(data){
     displayCityEl.innerHTML=data.name;
     displayDescEl.innerHTML= "Description : " + data.weather[0].description;
-    displayTempEl.innerHTML= "Temperature : " + data.main.temp;
-    displayHumidEl.innerHTML= "Humidity   : " + data.main.humidity;
-    displayWindEl.innerHTML= "Wind_Speed  : " + data.wind.speed;
+    displayTempEl.innerHTML= "Temperature : " + data.main.temp + "°F"
+    displayHumidEl.innerHTML= "Humidity   : " + data.main.humidity + "%";
+    displayWindEl.innerHTML= "Wind_Speed  : " + data.wind.speed + "mph";
     })
 
     }
@@ -50,11 +50,10 @@ searchButtonEl.addEventListener("click",function(){
        getforecast(cityName);
 })
 
-/* adding variables for moment .js, and api to display each day of 5-day forecast date, icon, temp, and humidity 
-        Day one*/
+// adding variables for moment .js, and api to display each day of 5-day forecast date, icon, temp, and humidity
 
         function getforecast(city){
-            var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=b9f6c58391da8f005bd41c6735238193";
+            var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+" &units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
             fetch(requestUrl)
             .then(function(response){
                 return response.json();
@@ -65,38 +64,32 @@ searchButtonEl.addEventListener("click",function(){
                 //Day One//
                 var dayOne = moment().add(1, "days").format("M/D/YYYY");
                 displayOneDateEl.innerHTML= dayOne;
-                displayOneTempEl.innerHTML= "Temperature : " + data.list[0].main.temp;
-                displayOneHumidEl.innerHTML= "Humidity : " + data.list[0].main.humidity;
+                displayOneTempEl.innerHTML= "Temperature : " + data.list[0].main.temp + "°F" ;
+                displayOneHumidEl.innerHTML= "Humidity : " + data.list[0].main.humidity + "%";
 
                 //Day Two//
                 var dayTwo = moment().add(2, "days").format("M/D/YYYY");
                 displayTwoDateEl.innerHTML= dayTwo;
-                displayTwoTempEl.innerHTML= "Temperature : " + data.list[8].main.temp;
-                displayTwoHumidEl.innerHTML= "Humidity : " + data.list[8].main.humidity;
+                displayTwoTempEl.innerHTML= "Temperature : " + data.list[8].main.temp + "°F";
+                displayTwoHumidEl.innerHTML= "Humidity : " + data.list[8].main.humidity + "%";
 
                 //Day Three//
                 var dayThree = moment().add(3, "days").format("M/D/YYYY");
                 displayThreeDateEl.innerHTML= dayThree;
-                displayThreeTempEl.innerHTML= "Temperature : " + data.list[16].main.temp;
-                displayThreeHumidEl.innerHTML= "Humidity : " + data.list[16].main.humidity;
+                displayThreeTempEl.innerHTML= "Temperature : " + data.list[16].main.temp + "°F";
+                displayThreeHumidEl.innerHTML= "Humidity : " + data.list[16].main.humidity + "%";
 
                 //Day Four//
                 var dayFour = moment().add(4, "days").format("M/D/YYYY");
                 displayFourDateEl.innerHTML= dayFour;
-                displayFourTempEl.innerHTML= "Temperature : " + data.list[24].main.temp;
-                displayFourHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity;
+                displayFourTempEl.innerHTML= "Temperature : " + data.list[24].main.temp + "°F";
+                displayFourHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity + "%";
 
                 //Day Five//
                 var dayFive = moment().add(5, "days").format("M/D/YYYY");
                 displayFiveDateEl.innerHTML= dayFive;
-                displayFiveTempEl.innerHTML= "Temperature : " + data.list[24].main.temp;
-                displayFiveHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity;
-
-
-
-
-                
-       
+                displayFiveTempEl.innerHTML= "Temperature : " + data.list[24].main.temp + "°F";
+                displayFiveHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity + "%";       
             })
         }
 
