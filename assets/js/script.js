@@ -7,6 +7,8 @@ var displayHumidEl = document.getElementById("humidity");
 var displayWindEl = document.getElementById("speed");
 var displayDescEl = document.getElementById("description");
 var displayIconEl = document.getElementById("icon");
+var today = moment().format("MM/DD/YY");
+var currentDateE1 = document.getElementById("date");
 //Day One//
 var displayOneTempEl = document.getElementById("dayonetemp");
 var displayOneHumidEl = document.getElementById("dayonehumid");
@@ -36,7 +38,12 @@ function getApi(city){
     })
     .then(function(data){
     displayCityEl.innerHTML=data.name;
+    currentDateE1.innerHTML=today;
     displayDescEl.innerHTML= "Description : " + data.weather[0].description;
+    var currentday = data.weather[0].icon;
+    var img =document.createElement("img");
+    img.src = "http://openweathermap.org/img/wn/" +currentday +".png";
+    displayIconEl.appendChild(img);
     displayTempEl.innerHTML= "Temperature : " + data.main.temp + "°F"
     displayHumidEl.innerHTML= "Humidity   : " + data.main.humidity + "%";
     displayWindEl.innerHTML= "Wind_Speed  : " + data.wind.speed + "mph";
