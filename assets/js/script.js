@@ -1,4 +1,3 @@
-//console.log("hello");
 var citySearchEl = document.getElementById("cityBox");
 var searchButtonEl = document.getElementById ("search");
 var displayCityEl = document.getElementById("city");
@@ -9,6 +8,7 @@ var displayDescEl = document.getElementById("description");
 var displayIconEl = document.getElementById("icon");
 var today = moment().format("MM/DD/YY");
 var currentDateE1 = document.getElementById("date");
+var cityListEl = document.getElementById("city-list");
 //Day One//
 var displayOneTempEl = document.getElementById("dayonetemp");
 var displayOneHumidEl = document.getElementById("dayonehumid");
@@ -61,9 +61,32 @@ searchButtonEl.addEventListener("click",function(){
        var cityName = citySearchEl.value;
        getApi(cityName);
        getforecast(cityName);
+
+    localStorage.setItem("storedcity", cityName);
+    var storedcity = localStorage.getItem("storedcity");
+    renderCityName(storedcity);
+       
 })
 
-// adding variables for moment .js, and api to display each day of 5-day forecast date, icon, temp, and humidity
+//var cityList = [];
+
+function renderCityName(city){
+   
+
+    //console.log(city.length);
+    
+    for (var i = 0; i < city.length; i++) {
+        
+        console.log("loop");
+        var showCity = city[i];
+        console.log(showCity);
+        var li = document.createElement("li");
+        li.textContent = showCity;
+        li.setAttribute("data-index", i);
+        cityListEl.appendChild(li);
+      }
+}
+
 
         function getforecast(city){
             var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+" &units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
@@ -120,8 +143,66 @@ searchButtonEl.addEventListener("click",function(){
                 var imgFive =document.createElement("img");
                 imgFive.src = "http://openweathermap.org/img/wn/" +dayFiveIcon+".png";
                 displayFiveIcon.appendChild(imgFive);
-   
             })
         }
+
+        localStorage.setItem("storedcity", citySearchEl);
+        var storedcity = localStorage.getItem("storedcity");
+        console.log(storedcity);
+
+        //$("#hour-9").val(localStorage.getItem("9AM"));.value
+
+       //citySearchEl.val(localStorage.getItem('cityName'));
+
+
+        
+    // var cityList =[];
+
+    // function showCity(){
+
+    //     console.log("Hello");
+    //     // cityList.innerHTML = " ";
+    //     //console.log(cityList);
+    //     var cityList= JSON.parse(localStorage.getItem('cityBox'));
+    //     console.log(cityList);
+
+    //     for (var i = 0; i < cityList.length; i++) {
+    //         console.log(i);
+    //         var cityNameList = cityList[i];
+    //         console.log(cityNameList);
+    //         var li =document.createElement("li");
+    //         li.textContent=cityNameList;
+    //         li.setAttribute("cityList",i);
+    //         var button = document.createElement("button");
+    //         li.appendChild(button);
+    //         cityList.appendChild(li);
+    //     }
+    // }
+
+    // function init(){
+    //     var storedCityList = JSON.parse(localStorage.getItem("citlist"));
+    //     if(storedCityList!==null){
+    //         cityList = storedCityList;
+    //     }
+    //     showCity();
+    // }
+
+    // function storeCityList() {
+    //     localStorage.setItem("CityList",JSON.stringify(cityList));
+    // }
+
+    // init();
+
+
+
+    
+        
+
+
+            
+        
+
+        
+
 
 
