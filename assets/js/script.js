@@ -9,6 +9,7 @@ var displayIconEl = document.getElementById("icon");
 var today = moment().format("MM/DD/YY");
 var currentDateE1 = document.getElementById("date");
 var cityListEl = document.getElementById("city-list");
+var uvIndexEl = document.getElementById("UVindex");
 //Day One//
 var displayOneTempEl = document.getElementById("dayonetemp");
 var displayOneHumidEl = document.getElementById("dayonehumid");
@@ -61,12 +62,10 @@ searchButtonEl.addEventListener("click",function(){
        var cityName = citySearchEl.value;
        getApi(cityName);
        getforecast(cityName);
-
-    var cityArr = [];
+        var cityArr = [];
     cityArr  = cityName.split(" ");
   localStorage.setItem("key",JSON.stringify(cityArr));
   var displayCity = JSON.parse(localStorage.getItem('key'));
-    console.log(displayCity);
     var li = document.createElement("li");
     li.textContent = displayCity;
     cityListEl.appendChild(li);
@@ -79,14 +78,12 @@ function showCityList(city){
 }
 
         function getforecast(city){
-            var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+" &units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
+            var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
             fetch(requestUrl)
             .then(function(response){
                 return response.json();
             })
             .then(function(data){
-                console.log(data);
-
                 //Day One//
                 var dayOne = moment().add(1, "days").format("M/D/YYYY");
                 displayOneDateEl.innerHTML= dayOne;
@@ -96,8 +93,7 @@ function showCityList(city){
                 var imgOne =document.createElement("img");
                 imgOne.src = "http://openweathermap.org/img/wn/" +dayOneIcon+".png";
                 displayOneIcon.appendChild(imgOne);
-
-                //Day Two//
+                 //Day Two//
                 var dayTwo = moment().add(2, "days").format("M/D/YYYY");
                 displayTwoDateEl.innerHTML= dayTwo;               
                 displayTwoTempEl.innerHTML= "Temperature : " + data.list[8].main.temp + "°F";
@@ -135,6 +131,8 @@ function showCityList(city){
                 displayFiveIcon.appendChild(imgFive);
             })
         }
+
+        
 
         
 
