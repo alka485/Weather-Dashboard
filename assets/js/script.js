@@ -38,7 +38,7 @@ var displayFiveDateEl= document.getElementById("dayfivedate");
 var displayFiveIcon = document.getElementById("dayfiveicon");
 
 function getApi(city){
-    var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
+    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
     fetch(requestUrl)
     .then(function(response){
         return response.json();
@@ -49,7 +49,7 @@ function getApi(city){
     displayDescEl.innerHTML= "Description : " + data.weather[0].description;
     var currentday = data.weather[0].icon;
     var img =document.createElement("img");
-    img.src = "http://openweathermap.org/img/wn/" +currentday +".png";
+    img.src = "https://openweathermap.org/img/wn/" +currentday +".png";
     displayIconEl.appendChild(img);
     displayTempEl.innerHTML= "Temperature : " + data.main.temp + "°F"
     displayHumidEl.innerHTML= "Humidity   : " + data.main.humidity + "%";
@@ -78,7 +78,7 @@ function showCityList(city){
 }
 
         function getforecast(city){
-            var requestUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
+            var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=b9f6c58391da8f005bd41c6735238193";
             fetch(requestUrl)
             .then(function(response){
                 return response.json();
@@ -91,7 +91,7 @@ function showCityList(city){
                 displayOneHumidEl.innerHTML= "Humidity : " + data.list[1].main.humidity + "%";
                 var dayOneIcon = data.list[1].weather[0].icon;
                 var imgOne =document.createElement("img");
-                imgOne.src = "http://openweathermap.org/img/wn/" +dayOneIcon+".png";
+                imgOne.src = "https://openweathermap.org/img/wn/" +dayOneIcon+".png";
                 displayOneIcon.appendChild(imgOne);
                  //Day Two//
                 var dayTwo = moment().add(2, "days").format("M/D/YYYY");
@@ -100,7 +100,7 @@ function showCityList(city){
                 displayTwoHumidEl.innerHTML= "Humidity : " + data.list[8].main.humidity + "%";
                 var dayTwoIcon = data.list[8].weather[0].icon;
                 var imgTwo =document.createElement("img");
-                imgTwo.src = "http://openweathermap.org/img/wn/" +dayTwoIcon+".png";
+                imgTwo.src = "https://openweathermap.org/img/wn/" +dayTwoIcon+".png";
                 displayTwoIcon.appendChild(imgTwo);
                 //Day Three//
                 var dayThree = moment().add(3, "days").format("M/D/YYYY");
@@ -109,7 +109,7 @@ function showCityList(city){
                 displayThreeHumidEl.innerHTML= "Humidity : " + data.list[16].main.humidity + "%";
                 var dayThreeIcon = data.list[16].weather[0].icon;
                 var imgThree =document.createElement("img");
-                imgThree.src = "http://openweathermap.org/img/wn/" +dayThreeIcon+".png";
+                imgThree.src = "https://openweathermap.org/img/wn/" +dayThreeIcon+".png";
                 displayThreeIcon.appendChild(imgThree);
                 //Day Four//
                 var dayFour = moment().add(4, "days").format("M/D/YYYY");
@@ -118,7 +118,7 @@ function showCityList(city){
                 displayFourHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity + "%";
                 var dayFourIcon = data.list[24].weather[0].icon;
                 var imgFour =document.createElement("img");
-                imgFour.src = "http://openweathermap.org/img/wn/" +dayFourIcon+".png";
+                imgFour.src = "https://openweathermap.org/img/wn/" +dayFourIcon+".png";
                 displayFourIcon.appendChild(imgFour);
                 //Day Five//
                 var dayFive = moment().add(5, "days").format("M/D/YYYY");
@@ -127,7 +127,7 @@ function showCityList(city){
                 displayFiveHumidEl.innerHTML= "Humidity : " + data.list[24].main.humidity + "%";    
                 var dayFiveIcon = data.list[1].weather[0].icon;
                 var imgFive =document.createElement("img");
-                imgFive.src = "http://openweathermap.org/img/wn/" +dayFiveIcon+".png";
+                imgFive.src = "https://openweathermap.org/img/wn/" +dayFiveIcon+".png";
                 displayFiveIcon.appendChild(imgFive);
             })
         }
