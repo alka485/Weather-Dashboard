@@ -5,7 +5,7 @@ The following image demonstrate the application functionality:
 
 ![image](https://user-images.githubusercontent.com/55006853/179702063-659b0504-ff80-4a28-ae95-943ab5ff7db2.png)
 
-![image](https://drive.google.com/file/d/1kCzJ58dxW25PRblytbQcy-1qVUT6dbEl/view)
+
 
 ## User Story
 
